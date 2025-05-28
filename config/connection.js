@@ -8,3 +8,11 @@ export default new Pool({
         rejectUnauthorized: false,
     }
 });
+
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error('Connection error:', err);
+        return; 
+    }
+    console.log('Connected to database:', res.rows[0]);
+});
