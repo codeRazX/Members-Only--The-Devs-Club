@@ -3,5 +3,8 @@ import {Pool} from 'pg';
 
 
 export default new Pool({
-    connectionString: (process.env.NODE_ENV === 'production')? process.env.DATABASE_URI_PROD : process.env.DATABASE_URI_DEV
+    connectionString: (process.env.NODE_ENV === 'production')? process.env.DATABASE_URI_PROD : process.env.DATABASE_URI_DEV,
+     ssl: {
+        rejectUnauthorized: false,
+    }
 });
