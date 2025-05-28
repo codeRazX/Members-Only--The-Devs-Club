@@ -9,10 +9,3 @@ export default new Pool({
     }
 });
 
-pool.query('SELECT NOW()', (err, res) => {
-    if (err) {
-        console.error('Connection error:', err);
-        return; 
-    }
-    console.log('Connected to database:', res.rows[0]);
-});
