@@ -4,7 +4,11 @@
 
         <% if(currentUser) { %>
         <div class="header__info">
-            <p class="header__info--name"><%= currentUser.is_admin ? 'Admin Welcome' : 'Welcome' %} <span><%= currentUser.first_name %>,</span><a href="/log-out"> sign out</a></p>
+        <p class="header__info--name">
+            <%= currentUser.is_admin ? '(Admin) Welcome' : 'Welcome' %> 
+            <span><%= currentUser.first_name %></span>
+            <a href="/log-out">, sign out</a>
+        </p>
 
             <nav class="header__info--nav">
                 <a href="/join">Join Club</a>
