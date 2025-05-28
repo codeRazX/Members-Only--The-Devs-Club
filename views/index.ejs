@@ -1,0 +1,70 @@
+    <%- include ('template/head') %>
+    <%- include ('template/header') %>
+
+        <% if(!currentUser) { %>
+        <form autocomplete="off" action="/log-in" method="post">
+            <% if (error && error.length > 0) { %>
+            <% error.forEach(msg => { %>
+                <div class="error"><%= msg %></div>
+            <% }) %>
+            <% } %>
+            <div class="form__block">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </div>
+
+            <div class="form__block">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <button type="submit">Login</button>
+
+            <p>Don't have an account? <a href="/sign-up">Signup here</a></p>
+        </form>
+        <% } %>
+
+        <% if (currentUser) { %>
+            <section class="container-messages">
+                <h2>Posts:</h2>
+
+                <ul class="list-messages">
+                   <% if (posts && posts.length) { %>
+
+                    <% posts.forEach(post => { %>
+                        <li class="post">
+                            <h3><%= post.title %></h3>
+                            <p class="post-content"><%= post.content %></p>
+
+                            <div class="post-block">
+                                <div class="post__info">
+                                    <p class="post-info-author">Author: <span><%= currentUser.membership_status? post.first_name + " " + post.last_name + ", " + post.username : 'JOIN_THE_CLUB_FOR_VIEW_THIS' %></span></p>
+                                    <p class="post-info-date">Date: <span><%= currentUser.membership_status? post.date.toDateString() : 'JOIN_THE_CLUB_FOR_VIEW_THIS' %></span></p>
+                                </div>
+
+                                <% if (currentUser.is_admin) { %>
+                               <form class="post-form" action="/delete/post/<%= post.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                    <button type="submit" class="delete-post">DELETE</button>
+                                </form>
+
+                               <% } %>
+                                
+                            </div>
+                           
+                        </li>
+
+                    <% }); %>
+
+                <% } else { %>
+                    <p class="messages-default">Currently, there are no posts to display</p>
+                <% } %>
+
+                </ul>
+            </section>
+           
+        <% } %>
+        
+
+  
+
+    <%- include ('template/footer') %>

@@ -1,0 +1,18 @@
+
+    <header class="header container">
+        <a href="/"><h1>The Devs' <span>Club</span></h1></a>
+
+        <% if(currentUser) { %>
+        <div class="header__info">
+            <p class="header__info--name"><%= currentUser.is_admin? (Admin) Welcome : Welcome <span><%= currentUser.first_name %>,</span><a href="/log-out"> sing out</a></p>
+
+            <nav class="header__info--nav">
+                <a href="/join">Join Club</a>
+                <a href="/create/message">New Post</a>
+            </nav>
+        </div>
+       <% } %>
+      
+        
+    </header>
+    <main class="main container">

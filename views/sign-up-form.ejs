@@ -1,0 +1,62 @@
+ <%- include ('template/head') %>
+    <%- include ('template/header') %>
+
+  
+        <form id="form-edit" autocomplete="off" action="/sign-up" method="post">
+            <% if (errors.general) { %>
+                <p class="error"><%= errors.general %></p>
+            <% } %>
+
+            <div class="form__block">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" id="first-name" placeholder="Type your first name" value="<%= formData.first_name ? formData.first_name : '' %>">
+                <% if (errors.first_name) { %>
+                    <p class="error"><%= errors.first_name %></p>
+                <% } %>
+            </div>
+
+            <div class="form__block">
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" id="last-name" placeholder="Type your last name" value="<%= formData.last_name ? formData.last_name : '' %>">
+                <% if (errors.last_name) { %>
+                    <p class="error"><%= errors.last_name %></p>
+                <% } %>
+            </div>
+
+             <div class="form__block">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Enter a username, it can be your email address" value="<%= formData.username ? formData.username : '' %>">
+                <% if (errors.username) { %>
+                    <p class="error"><%= errors.username %></p>
+                <% } %>
+            </div>
+
+             <div class="form__block">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Create a password">
+                <% if (errors.password) { %>
+                    <p class="error"><%= errors.password %></p>
+                <% } %>
+            </div>
+
+             <div class="form__block">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm your password">
+                <% if (errors.confirmPassword) { %>
+                    <p class="error"><%= errors.confirmPassword %></p>
+                <% } %>
+            </div>
+
+             <div class="form__block">
+                <label for="admin_code">Admin Code (opcional):</label>
+                <input type="password" name="admin_code" id="admin_code" placeholder="If you know the secret for ADMIN, type it here">
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+            <p>Already have an account? <a href="/">Login here</a></p>
+        </form>
+
+  
+
+    <%- include ('template/footer') %>

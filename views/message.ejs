@@ -1,0 +1,36 @@
+  <%- include ('template/head') %>
+  <%- include ('template/header') %>
+
+        <% if(currentUser) { %>
+        <form autocomplete="off" action="/create/message" method="post">
+          
+            <% if (errors.general) { %>
+                <p class="error"><%= errors.general %></p>
+            <% } %>
+           
+            <div class="form__block">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" value="<%= formData.title ? formData.title : '' %>">
+                <% if (errors.title) { %>
+                    <p class="error"> <%= errors.title %></p>
+                <% } %>
+            </div>
+
+            <div class="form__block">
+                <label for="post">Message:</label>
+                <textarea type="text" name="post" id="post"><%= formData.post ? formData.post : '' %></textarea>
+                <% if (errors.post) { %>
+                    <p class="error"><%= errors.post %></p>
+                <% } %>
+            </div>
+
+
+            <button type="submit">Send</button>
+            <a class="back" href="/"><img src="/back.svg" alt="Icon back home" width="100px" height="100px"></a>
+        </form>
+        <% } %>
+        
+
+  
+
+    <%- include ('template/footer') %>

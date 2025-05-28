@@ -1,0 +1,364 @@
+*, 
+*::before,
+ *:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+}
+[class $= "container"]{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+a, p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid purple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.header h1{
+    color: white;
+    font-size: 5rem;
+    text-shadow: 0 0 5px white;
+    font-family: 'Times New Roman', Times, serif
+}
+.header h1 span{
+    display: block;
+    font-size: 6rem;
+    line-height: .5;
+    color:darkmagenta;
+    text-shadow: 0 0 5px darkmagenta;
+    text-align: center;
+    font-family: inherit;
+}
+.header__info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    text-align: center;
+}
+.header__info--name{
+    color: #CCC;
+    font-weight: bold;
+}
+
+.header__info--name a{
+    color: darkmagenta;
+}
+.header__info--name a:hover{
+    color: deeppink;
+}
+.header__info--nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header__info--nav a{
+    text-decoration: none;
+    padding: .8rem 2rem;
+    background-color: purple;
+    color: white;
+    text-shadow: 0 0 5px black;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+}
+.header__info--nav a:hover{
+    background-color: deeppink;
+    transform: scale(1.05);
+}
+@media (min-width: 768px) {
+    .header{
+        flex-direction: unset;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4rem;
+    }
+    .header__info{
+        justify-content: space-between;
+    }
+    .header__info--name{
+        align-self: flex-end;
+        margin-top: 1rem;
+    }
+    .header__info--nav a {
+        padding: 1rem 3rem;
+    }
+    .header h1 span{
+        text-align: unset;
+    }
+}
+
+
+.main{
+    flex: 1;
+    margin: 2rem 0;
+    align-self: center;
+    position: relative;
+}
+
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: black;
+    padding: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray;
+    max-width: 40rem;
+    width: 90%;
+}
+
+.form__block{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: white;
+}
+.form__block label{
+    color: #CCC;
+}
+.form__block input,
+.form__block textarea{
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.form__block textarea{
+    resize: vertical;
+    min-height: 4rem;
+    max-height: 10rem;
+    font-family: inherit;
+}
+.form__block input::placeholder{
+    color: #AAA;
+}
+.form__block input:focus, 
+.form__block textarea:focus{
+    outline: none;
+    border: 1px solid purple;
+}
+form button{
+    padding: 1rem;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+form button:hover{
+    background-color: deeppink;
+}
+form p{
+    color: gray;
+    text-align: center;
+}
+form a{
+    color: deeppink;
+}
+form a:hover{
+    color: darkmagenta;
+}
+
+
+footer{
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.footer a{
+    color:deeppink;
+}
+
+.error{
+    color: darkmagenta;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+
+.container-success{
+    position: absolute;
+    width: 100%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.success{
+    color: greenyellow;
+    font-weight: bold;
+    font-size: 4rem;
+}
+.spinner{
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border: 3px solid purple;
+    border-radius: 50%;
+    border-bottom: none;
+    border-left: none;
+    animation: spinner 1s linear infinite;
+
+}
+.redirecting{
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+@keyframes spinner{
+  0%{
+    transform: scale(1)rotate(0deg);
+  }
+  50%{
+    transform: scale(1.1)rotate(180deg)
+  }
+  100%{
+    transform: scale(1)rotate(360deg);
+  }
+}
+
+
+.back{
+    position: absolute;
+    top: 0;
+    left: .5rem;
+}
+
+.back img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.container-messages{
+    margin-top: 5rem;
+}
+.container-messages h2{
+    color: white;
+    font-weight: bold;
+    color: white;
+    text-decoration: underline;
+    font-size: 2.8rem;
+    text-align: center;
+}
+.list-messages{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    list-style: none;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.messages-default{
+    color: darkmagenta;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+
+
+.post{
+    background-color: black;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+    border-left: 10px solid deeppink;
+    border-radius: 5px;
+    transition: transform 200ms linear;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 0 5px gray;
+}
+
+.post-content{
+    color: gray;
+    font-weight: 500;
+} 
+.post:hover{
+    transform: scale(1.02);
+}
+.post-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+@media (min-width: 400px) {
+    .post-block{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.post-info-author{
+    color: darkmagenta;
+}
+.post-info-date{
+    color: greenyellow;
+}
+.post-form{
+    align-self: flex-end;
+    all: unset;
+}
+.delete-post{
+    background-color: rebeccapurple;
+    color: white;
+    padding: .7rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .delete-post{
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+}
+.delete-post:hover{
+    background-color: darkmagenta;
+}

@@ -1,0 +1,21 @@
+    <%- include ('template/head') %>
+    <%- include ('template/header') %>
+
+        <div class="container-success">
+            <h2 class="success">Account created successfully!</h2>
+            <div class="spinner"></div>
+            <h3 class="redirecting">Redirecting...</h3>
+        </div>
+     
+    
+    </main>
+    <footer class="footer container">
+        <p>The Devs' Club building by <a href="https://github.com/codeRazX" target="_blank">codeRazX</a></p>
+    </footer>
+    <script>
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+  <%- include ('template/head') %>
+    <%- include ('template/header') %>
+
+        <% if(currentUser) { %>
+        <form autocomplete="off" action="/join" method="post">
+            <p>You need the secret key to join the club; you should already have it</p>
+            <% if (errors.general) { %>
+                <p class="error"><%= errors.general %></p>
+            <% } %>
+             <% if(errors.key) { %>
+                <p class="error"><%= errors.key %></p>
+             <% } %>
+            <div class="form__block">
+                <label for="key">Secret Key:</label>
+                <input type="password" name="key" id="key" value="<%= formData.key? formData.key : '' %>">
+            </div>
+
+
+            <button type="submit">Send</button>
+            <a class="back" href="/"><img src="/back.svg" alt="Icon back home" width="100px" height="100px"></a>
+        </form>
+        <% } %>
+        
+
+  
+
+    <%- include ('template/footer') %>
